@@ -33,9 +33,9 @@ class LoginVC: UIViewController {
 }
 
 extension LoginVC: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.contentOffset.x != 0 {
-              scrollView.contentOffset.x = 0
+    func scrollViewDidScroll(_ sc: UIScrollView) {
+        if sc.contentOffset.x != 0 {
+              sc.contentOffset.x = 0
           }
     }
 }

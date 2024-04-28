@@ -66,7 +66,7 @@ extension SignupVC: UITextFieldDelegate {
            }
             
         case ageTextfield:
-           if (textField.text?.count ?? 0) == 2 {
+           if (textField.text?.count ?? 0) > 3 {
                ageTextfield.layer.borderWidth = 0
             
            } else {
