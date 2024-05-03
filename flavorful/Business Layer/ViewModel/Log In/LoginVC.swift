@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class LoginVC: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
@@ -19,50 +20,72 @@ class LoginVC: UIViewController {
     @IBOutlet weak var signUpLabel: UILabel!
     @IBOutlet weak var signUpButton: UIButton!
     
+    private var peopleList: Results<Person>?
+    let realm = RealmHelper.instance.realm
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        setupTarget()
+        getPeopleList()
+        print(realm?.configuration.fileURL ?? "")
+    }
+    
+    fileprivate func getPeopleList() {
+            let results = realm?.objects(Person.self)
+            peopleList = results
     }
     
     fileprivate func setupView() {
         emailTextfield.delegate = self
         passTextfield.delegate = self
         scrollView.delegate = self
+        signInButton.layer.cornerRadius = 8
     }
-}
-
-extension LoginVC: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ sc: UIScrollView) {
-        if sc.contentOffset.x != 0 {
-              sc.contentOffset.x = 0
-          }
+    
+    fileprivate func setupTarget() {
+        signInButton.addTarget(self, action: #selector(signInAction), for: .touchUpInside)
     }
-}
-
-extension LoginVC: UITextFieldDelegate {
-    func textFieldDidChangeSelection(_ textField: UITextField) {
-        switch textField {
-        case emailTextfield:
-           if (textField.text?.count ?? 0) > 6 {
-               emailTextfield.layer.borderWidth = 0
-       
-           } else {
-               emailTextfield.layer.borderWidth = 1
-               emailTextfield.layer.borderColor = UIColor.red.cgColor
-           }
+    
+    @objc func signInAction() {
+        checkUser()
+    }
+    
+    public func showAlertMessage(title: String, message: String){
             
-        case passTextfield:
-           if (textField.text?.count ?? 0) > 5 {
-               passTextfield.layer.borderWidth = 0
+            let alertMessagePopUpBox = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            let okButton = UIAlertAction(title: "OK", style: .default)
+            alertMessagePopUpBox.addAction(okButton)
+            self.present(alertMessagePopUpBox, animated: true)
+        }
+    
+    fileprivate func checkUser() {
+        guard let email = emailTextfield.text,
+              let password = passTextfield.text,
+              let list = peopleList else {return}
+        
+        if email.count < 6 && password.count < 5 {
+            return
             
-           } else {
-               passTextfield.layer.borderWidth = 1
-               passTextfield.layer.borderColor = UIColor.red.cgColor
-           }
+        } else {
+            guard let user = list.first(where: {$0.email == email}) else {
+                showAlertMessage(title: "Alert", message: "User not found")
+                return
+            }
             
-        default:
-            break
+            if user.pass == password {
+//                logInSuccess()
+                print(#function, "success")
+            } else {
+                showAlertMessage(title: "Alert", message: "Incorrect password")
+            }
         }
     }
+    
+//    fileprivate func logInSuccess() {
+//            let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SignupVC") as? SignupVC
+//            self.navigationController?.pushViewController(vc!, animated: true)
+////            UserDefaultsHelper.setBool(key: Constant.UD_IS_LOGIN_KEY, value: true)
+//        }
 }
+
