@@ -23,18 +23,21 @@ class LoginVC: UIViewController {
     private var peopleList: Results<Person>?
     let realm = RealmHelper.instance.realm
     
+    let viewModel = LoginVM()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         setupTarget()
-        getPeopleList()
+        viewModel.getPeopleList()
+//        getPeopleList()
         print(realm?.configuration.fileURL ?? "")
     }
     
-    fileprivate func getPeopleList() {
-            let results = realm?.objects(Person.self)
-            peopleList = results
-    }
+//    fileprivate func getPeopleList() {
+//            let results = realm?.objects(Person.self)
+//            peopleList = results
+//    }
     
     fileprivate func setupView() {
         emailTextfield.delegate = self
@@ -51,41 +54,37 @@ class LoginVC: UIViewController {
         checkUser()
     }
     
-    public func showAlertMessage(title: String, message: String){
-            
-            let alertMessagePopUpBox = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            let okButton = UIAlertAction(title: "OK", style: .default)
-            alertMessagePopUpBox.addAction(okButton)
-            self.present(alertMessagePopUpBox, animated: true)
-        }
+//    public func showAlertMessage(title: String, message: String){
+//            
+//            let alertMessagePopUpBox = UIAlertController(title: title, message: message, preferredStyle: .alert)
+//            let okButton = UIAlertAction(title: "OK", style: .default)
+//            alertMessagePopUpBox.addAction(okButton)
+//            self.present(alertMessagePopUpBox, animated: true)
+//        }
     
     fileprivate func checkUser() {
         guard let email = emailTextfield.text,
               let password = passTextfield.text,
-              let list = peopleList else {return}
+              let list = viewModel.peopleList else {return}
         
         if email.count < 6 && password.count < 5 {
             return
             
         } else {
             guard let user = list.first(where: {$0.email == email}) else {
-                showAlertMessage(title: "Alert", message: "User not found")
+                self.showAlert(alertText: "Alert", alertMessage: "User not found")
+//                showAlertMessage(title: "Alert", message: "User not found")
                 return
             }
             
             if user.pass == password {
-//                logInSuccess()
+//                logIn olanda hara kecsin onu yaz
                 print(#function, "success")
             } else {
-                showAlertMessage(title: "Alert", message: "Incorrect password")
+                self.showAlert(alertText: "Alert", alertMessage: "Incorrect password")
+//                showAlertMessage(title: "Alert", message: "Incorrect password")
             }
         }
     }
-    
-//    fileprivate func logInSuccess() {
-//            let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SignupVC") as? SignupVC
-//            self.navigationController?.pushViewController(vc!, animated: true)
-////            UserDefaultsHelper.setBool(key: Constant.UD_IS_LOGIN_KEY, value: true)
-//        }
 }
 

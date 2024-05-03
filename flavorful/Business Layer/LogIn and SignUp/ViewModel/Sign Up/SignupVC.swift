@@ -24,10 +24,12 @@ class SignupVC: UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var signInLabel: UILabel!
     @IBOutlet weak var signInButton: UIButton!
+    var saveCb: (() -> Void)?
     
     private var peopleList: Results<Person>?
     let realm = RealmHelper.instance.realm
     
+    let viewModel = SignupVM()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,12 +63,15 @@ class SignupVC: UIViewController {
         signUpButton.addTarget(self, action: #selector(signUpAction), for: .touchUpInside)
         signInButton.addTarget(self, action: #selector(signInAction), for: .touchUpInside)
     }
-    
+//    check and save user data to Realm
     @objc func signUpAction() {
         if ((nameTextfield.text!.isEmpty)) || ((surnameTextfield.text!.isEmpty)) || ((ageTextfield.text!.isEmpty)) || ((emailTextfield.text!.isEmpty)) || ((passTextfield.text!.isEmpty)) {
-            showAlertMessage(title: "Alert", message: "Fill all fields")
+            self.showAlert(alertText: "Alert", alertMessage: "Fill all fields")
+//            showAlertMessage(title: "Alert", message: "Fill all fields")
         } else {
-            saveObjectToRealm(name: nameTextfield.text ?? "", surname: surnameTextfield.text ?? "", age: ageTextfield.text ?? "", email: emailTextfield.text ?? "", pass: passTextfield.text ?? "")
+            guard let name = nameTextfield.text, let surname = surnameTextfield.text, let age = ageTextfield.text, let email = emailTextfield.text, let pass = passTextfield.text else {return}
+            viewModel.saveObjectToRealm(name: name, surname: surname, age: age, email: email, pass: pass)
+            saveCb?()
             dismiss(animated: true)
         }
     }
@@ -74,26 +79,5 @@ class SignupVC: UIViewController {
     @objc func signInAction() {
         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LoginVC") as? LoginVC
                 self.navigationController?.pushViewController(vc!, animated: true)
-    }
-    
-    public func showAlertMessage(title: String, message: String) {
-        let alertMessagePopUpBox = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okButton = UIAlertAction(title: "OK", style: .default)
-        alertMessagePopUpBox.addAction(okButton)
-        self.present(alertMessagePopUpBox, animated: true)
-    }
-    
-    // save user to realm
-    fileprivate func saveObjectToRealm(name: String, surname: String, age: String, email: String, pass: String) {
-        let person = Person()
-        person.name = name
-        person.surname = surname
-        person.age = age
-        person.email = email
-        person.pass = pass
-        
-        try! realm?.write() {
-            realm?.add(person)
-        }
     }
 }
