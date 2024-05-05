@@ -48,10 +48,17 @@ class LoginVC: UIViewController {
     
     fileprivate func setupTarget() {
         signInButton.addTarget(self, action: #selector(signInAction), for: .touchUpInside)
+        signUpButton.addTarget(self, action: #selector(signUpAction), for: .touchUpInside)
     }
     
     @objc func signInAction() {
         checkUser()
+    }
+    
+    @objc func signUpAction() {
+         let vc = storyboard?.instantiateViewController(withIdentifier: "SignupVC") as! SignupVC
+                vc.modalPresentationStyle = .fullScreen
+                present(vc, animated: true)
     }
     
 //    public func showAlertMessage(title: String, message: String){
@@ -79,12 +86,19 @@ class LoginVC: UIViewController {
             
             if user.pass == password {
 //                logIn olanda hara kecsin onu yaz
+                logInSuccess()
                 print(#function, "success")
             } else {
                 self.showAlert(alertText: "Alert", alertMessage: "Incorrect password")
 //                showAlertMessage(title: "Alert", message: "Incorrect password")
             }
         }
+    }
+    
+    fileprivate func logInSuccess() {
+        let vc = UIStoryboard.init(name: "Home", bundle: Bundle.main).instantiateViewController(withIdentifier: "HomeVC") as? HomeVC
+        self.navigationController?.pushViewController(vc!, animated: true)
+        UserDefaultsHelper.setBool(key: Constant.UD_IS_LOGIN_KEY, value: true)
     }
 }
 

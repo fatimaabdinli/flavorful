@@ -17,6 +17,10 @@
 		B61F3E682BE53B6B0010F4EE /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B61F3E672BE53B6B0010F4EE /* Home.storyboard */; };
 		B61F3E6C2BE53D480010F4EE /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61F3E6B2BE53D480010F4EE /* LoginVM.swift */; };
 		B61F3E6E2BE53D5E0010F4EE /* SignupVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61F3E6D2BE53D5E0010F4EE /* SignupVM.swift */; };
+		B61F3E722BE77D5D0010F4EE /* TabbarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61F3E712BE77D5D0010F4EE /* TabbarVC.swift */; };
+		B61F3E762BE77DFB0010F4EE /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61F3E752BE77DFB0010F4EE /* HomeVC.swift */; };
+		B61F3E792BE788630010F4EE /* FavoriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61F3E782BE788630010F4EE /* FavoriteVC.swift */; };
+		B61F3E7C2BE78A110010F4EE /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61F3E7B2BE78A110010F4EE /* ProfileVC.swift */; };
 		B62FDFCB2BE2BC9800E21A3A /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = B62FDFCA2BE2BC9800E21A3A /* Realm */; };
 		B62FDFCD2BE2BC9800E21A3A /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B62FDFCC2BE2BC9800E21A3A /* RealmSwift */; };
 		B6B913112BDE418F001BC918 /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B913102BDE418F001BC918 /* RealmHelper.swift */; };
@@ -38,6 +42,10 @@
 		B61F3E672BE53B6B0010F4EE /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		B61F3E6B2BE53D480010F4EE /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
 		B61F3E6D2BE53D5E0010F4EE /* SignupVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVM.swift; sourceTree = "<group>"; };
+		B61F3E712BE77D5D0010F4EE /* TabbarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarVC.swift; sourceTree = "<group>"; };
+		B61F3E752BE77DFB0010F4EE /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		B61F3E782BE788630010F4EE /* FavoriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteVC.swift; sourceTree = "<group>"; };
+		B61F3E7B2BE78A110010F4EE /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		B6B913102BDE418F001BC918 /* RealmHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
 		B6B913122BDE419C001BC918 /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		B6B913192BDE43D1001BC918 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
@@ -78,8 +86,6 @@
 			children = (
 				B60B12212BDD307B0080446A /* Core */,
 				B60B12232BDD308D0080446A /* Business Layer */,
-				B61F3E6A2BE53C240010F4EE /* View */,
-				B60B12222BDD30850080446A /* Helpers */,
 				B60B12162BD95E1F0080446A /* Assets.xcassets */,
 				B60B12182BD95E1F0080446A /* LaunchScreen.storyboard */,
 				B60B121B2BD95E1F0080446A /* Info.plist */,
@@ -109,7 +115,9 @@
 		B60B12232BDD308D0080446A /* Business Layer */ = {
 			isa = PBXGroup;
 			children = (
-				B61F3E692BE53BDC0010F4EE /* LogIn and SignUp */,
+				B61F3E692BE53BDC0010F4EE /* Auth */,
+				B61F3E6F2BE77C560010F4EE /* Home */,
+				B60B12222BDD30850080446A /* Helpers */,
 			);
 			path = "Business Layer";
 			sourceTree = "<group>";
@@ -157,14 +165,14 @@
 			path = "Sign Up";
 			sourceTree = "<group>";
 		};
-		B61F3E692BE53BDC0010F4EE /* LogIn and SignUp */ = {
+		B61F3E692BE53BDC0010F4EE /* Auth */ = {
 			isa = PBXGroup;
 			children = (
 				B60B12242BDD30AA0080446A /* Model */,
 				B60B12262BDD30CB0080446A /* View */,
 				B60B12272BDD30D40080446A /* ViewModel */,
 			);
-			path = "LogIn and SignUp";
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		B61F3E6A2BE53C240010F4EE /* View */ = {
@@ -173,6 +181,58 @@
 				B61F3E672BE53B6B0010F4EE /* Home.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		B61F3E6F2BE77C560010F4EE /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B61F3E6A2BE53C240010F4EE /* View */,
+				B61F3E702BE77CD50010F4EE /* ViewModel */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B61F3E702BE77CD50010F4EE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B61F3E732BE77D7A0010F4EE /* Initial */,
+				B61F3E742BE77D900010F4EE /* Home */,
+				B61F3E772BE788410010F4EE /* Favorite */,
+				B61F3E7A2BE789E70010F4EE /* Profile */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B61F3E732BE77D7A0010F4EE /* Initial */ = {
+			isa = PBXGroup;
+			children = (
+				B61F3E712BE77D5D0010F4EE /* TabbarVC.swift */,
+			);
+			path = Initial;
+			sourceTree = "<group>";
+		};
+		B61F3E742BE77D900010F4EE /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B61F3E752BE77DFB0010F4EE /* HomeVC.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B61F3E772BE788410010F4EE /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				B61F3E782BE788630010F4EE /* FavoriteVC.swift */,
+			);
+			path = Favorite;
+			sourceTree = "<group>";
+		};
+		B61F3E7A2BE789E70010F4EE /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				B61F3E7B2BE78A110010F4EE /* ProfileVC.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +316,7 @@
 			files = (
 				B6B913132BDE419C001BC918 /* UserDefaultsHelper.swift in Sources */,
 				B60B122B2BDD385D0080446A /* SignupVC.swift in Sources */,
+				B61F3E7C2BE78A110010F4EE /* ProfileVC.swift in Sources */,
 				B6B913112BDE418F001BC918 /* RealmHelper.swift in Sources */,
 				B6B9131C2BDE542F001BC918 /* Extensions.swift in Sources */,
 				B60B12122BD95E1D0080446A /* LoginVC.swift in Sources */,
@@ -263,7 +324,10 @@
 				B61F3E6E2BE53D5E0010F4EE /* SignupVM.swift in Sources */,
 				B60B120E2BD95E1D0080446A /* AppDelegate.swift in Sources */,
 				B60B12102BD95E1D0080446A /* SceneDelegate.swift in Sources */,
+				B61F3E792BE788630010F4EE /* FavoriteVC.swift in Sources */,
+				B61F3E762BE77DFB0010F4EE /* HomeVC.swift in Sources */,
 				B61F3E6C2BE53D480010F4EE /* LoginVM.swift in Sources */,
+				B61F3E722BE77D5D0010F4EE /* TabbarVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

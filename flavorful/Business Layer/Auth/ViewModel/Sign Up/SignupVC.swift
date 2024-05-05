@@ -11,6 +11,7 @@ import RealmSwift
 class SignupVC: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var createLabel: UILabel!
+    @IBOutlet weak var dismissButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var nameTextfield: UITextField!
     @IBOutlet weak var surnameLabel: UILabel!
@@ -62,6 +63,7 @@ class SignupVC: UIViewController {
     fileprivate func setupTarget() {
         signUpButton.addTarget(self, action: #selector(signUpAction), for: .touchUpInside)
         signInButton.addTarget(self, action: #selector(signInAction), for: .touchUpInside)
+        dismissButton.addTarget(self, action: #selector(dismissAction), for: .touchUpInside)
     }
 //    check and save user data to Realm
     @objc func signUpAction() {
@@ -77,7 +79,10 @@ class SignupVC: UIViewController {
     }
     
     @objc func signInAction() {
-        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LoginVC") as? LoginVC
-                self.navigationController?.pushViewController(vc!, animated: true)
+        dismiss(animated: true)
+    }
+    
+    @objc func dismissAction() {
+        dismiss(animated: true)
     }
 }

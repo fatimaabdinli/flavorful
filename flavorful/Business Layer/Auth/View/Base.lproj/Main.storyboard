@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CHf-UX-HX1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Yhi-HL-ME0">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
@@ -145,7 +145,9 @@
                                     <constraint firstItem="GOD-NB-Bmm" firstAttribute="height" secondItem="23t-6z-0MV" secondAttribute="height" id="FaF-Gq-9Cp"/>
                                     <constraint firstItem="GOD-NB-Bmm" firstAttribute="width" secondItem="23t-6z-0MV" secondAttribute="width" id="JNT-af-nZa"/>
                                     <constraint firstItem="GOD-NB-Bmm" firstAttribute="top" secondItem="23t-6z-0MV" secondAttribute="top" id="ZXg-6W-XTK"/>
+                                    <constraint firstAttribute="bottom" secondItem="GOD-NB-Bmm" secondAttribute="bottom" id="c1y-tT-bBy"/>
                                     <constraint firstAttribute="trailing" secondItem="GOD-NB-Bmm" secondAttribute="trailing" id="dIH-y4-3ZE"/>
+                                    <constraint firstItem="GOD-NB-Bmm" firstAttribute="top" secondItem="23t-6z-0MV" secondAttribute="top" id="p7M-ob-xSP"/>
                                     <constraint firstItem="GOD-NB-Bmm" firstAttribute="leading" secondItem="23t-6z-0MV" secondAttribute="leading" id="rwt-cy-ThS"/>
                                 </constraints>
                             </scrollView>
@@ -349,6 +351,16 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Sign in"/>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sjh-JP-hAK">
+                                                <rect key="frame" x="361" y="8" width="16" height="16"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="16" id="0bI-Vh-lyr"/>
+                                                    <constraint firstAttribute="height" constant="16" id="aDM-qv-wsD"/>
+                                                </constraints>
+                                                <color key="tintColor" red="0.90323847530000001" green="0.56069529060000001" blue="0.29796284439999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="xmark.app" catalog="system" title=""/>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -364,14 +376,18 @@
                                             <constraint firstItem="Pli-wu-RB6" firstAttribute="width" secondItem="zH8-9O-A6S" secondAttribute="width" multiplier="0.191688" id="nuX-mv-tPq"/>
                                             <constraint firstItem="vbM-82-gt7" firstAttribute="top" secondItem="MxW-lI-rpw" secondAttribute="bottom" constant="24" id="r9i-ax-PyG"/>
                                             <constraint firstAttribute="trailing" secondItem="iEZ-3J-hL9" secondAttribute="trailing" constant="12" id="uND-7d-7Rm"/>
+                                            <constraint firstAttribute="trailing" secondItem="sjh-JP-hAK" secondAttribute="trailing" constant="16" id="viQ-Vb-Uis"/>
                                             <constraint firstItem="MxW-lI-rpw" firstAttribute="top" secondItem="iEZ-3J-hL9" secondAttribute="bottom" constant="24" id="yZP-n2-brh"/>
+                                            <constraint firstItem="iEZ-3J-hL9" firstAttribute="top" secondItem="sjh-JP-hAK" secondAttribute="bottom" constant="16" id="yoX-Qy-KeC"/>
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="zH8-9O-A6S" firstAttribute="width" secondItem="ZT0-99-gAT" secondAttribute="width" id="60X-OO-e82"/>
                                     <constraint firstAttribute="bottom" secondItem="zH8-9O-A6S" secondAttribute="bottom" id="9sa-kL-Elp"/>
+                                    <constraint firstItem="zH8-9O-A6S" firstAttribute="top" secondItem="ZT0-99-gAT" secondAttribute="top" id="Ini-Dx-quH"/>
+                                    <constraint firstAttribute="bottom" secondItem="zH8-9O-A6S" secondAttribute="bottom" id="Jgk-ur-kbP"/>
                                     <constraint firstItem="zH8-9O-A6S" firstAttribute="leading" secondItem="ZT0-99-gAT" secondAttribute="leading" id="QYE-qc-6lN"/>
                                     <constraint firstAttribute="trailing" secondItem="zH8-9O-A6S" secondAttribute="trailing" id="gV2-MM-riX"/>
                                     <constraint firstItem="zH8-9O-A6S" firstAttribute="top" secondItem="ZT0-99-gAT" secondAttribute="top" id="iIk-yz-fGH"/>
@@ -392,6 +408,7 @@
                         <outlet property="ageLabel" destination="We7-Oy-T47" id="CJu-bh-ziK"/>
                         <outlet property="ageTextfield" destination="jN3-Ma-JgA" id="1oK-QQ-WRZ"/>
                         <outlet property="createLabel" destination="qoZ-Ia-lpj" id="Mnd-1g-LyT"/>
+                        <outlet property="dismissButton" destination="sjh-JP-hAK" id="9Dv-sd-2UL"/>
                         <outlet property="emailLabel" destination="3Yv-WQ-dPB" id="hZd-PO-ZXA"/>
                         <outlet property="emailTextfield" destination="IYg-Xc-GRO" id="mse-QY-i4I"/>
                         <outlet property="nameLabel" destination="9Aw-B8-l4b" id="fQJ-nJ-Z4s"/>
@@ -412,6 +429,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="xmark.app" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
