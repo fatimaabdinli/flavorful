@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Yhi-HL-ME0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CHf-UX-HX1">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -60,7 +60,7 @@
                                                                             <constraint firstAttribute="height" constant="56" id="Mh3-F7-DFk"/>
                                                                         </constraints>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                                     </textField>
                                                                 </subviews>
                                                                 <constraints>
@@ -190,8 +190,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zH8-9O-A6S">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="818"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="iEZ-3J-hL9">
-                                                <rect key="frame" x="12" y="40.000000000000028" width="369" height="474.66666666666674"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="iEZ-3J-hL9">
+                                                <rect key="frame" x="12" y="40" width="369" height="579"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="znE-ht-dlV">
                                                         <rect key="frame" x="0.0" y="0.0" width="369" height="37.333333333333336"/>
@@ -204,19 +204,19 @@
                                                             </label>
                                                         </subviews>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Ock-ez-fYj">
-                                                        <rect key="frame" x="0.0" y="77.333333333333343" width="369" height="397.33333333333326"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Ock-ez-fYj">
+                                                        <rect key="frame" x="0.0" y="61.333333333333314" width="369" height="517.66666666666674"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Q3w-an-fUa">
                                                                 <rect key="frame" x="0.0" y="0.0" width="369" height="84.333333333333329"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Surname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Aw-B8-l4b">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="117.33333333333333" height="20.333333333333332"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Aw-B8-l4b">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="45" height="20.333333333333332"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Name and Surname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y5e-9V-esU">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" restorationIdentifier="nameTextfield" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Name " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y5e-9V-esU">
                                                                         <rect key="frame" x="0.0" y="28.333333333333329" width="369" height="56"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="56" id="5zg-h5-MwO"/>
@@ -229,27 +229,30 @@
                                                                     <constraint firstItem="y5e-9V-esU" firstAttribute="width" secondItem="Q3w-an-fUa" secondAttribute="width" id="wpf-2b-XSP"/>
                                                                 </constraints>
                                                             </stackView>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7Gc-nF-Dsn">
-                                                                <rect key="frame" x="0.0" y="104.33333333333334" width="369" height="84.333333333333343"/>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="uOM-K4-wci">
+                                                                <rect key="frame" x="0.0" y="108.33333333333334" width="369" height="84.333333333333343"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Yv-WQ-dPB">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="369" height="20.333333333333332"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Surname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Gj-qH-Ns5">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="68.333333333333329" height="20.333333333333332"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IYg-Xc-GRO">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" restorationIdentifier="surnameTextfield" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Surname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eGc-4a-YXF">
                                                                         <rect key="frame" x="0.0" y="28.333333333333343" width="369" height="56"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="height" constant="56" id="tsp-hm-Gr5"/>
+                                                                            <constraint firstAttribute="height" constant="56" id="kOs-4S-g1A"/>
                                                                         </constraints>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
                                                                 </subviews>
+                                                                <constraints>
+                                                                    <constraint firstItem="eGc-4a-YXF" firstAttribute="width" secondItem="uOM-K4-wci" secondAttribute="width" id="XXv-bO-kTg"/>
+                                                                </constraints>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="j0B-fp-OUu">
-                                                                <rect key="frame" x="0.0" y="208.66666666666669" width="369" height="84.333333333333314"/>
+                                                                <rect key="frame" x="0.0" y="216.66666666666671" width="369" height="84.333333333333343"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="We7-Oy-T47">
                                                                         <rect key="frame" x="0.0" y="0.0" width="30" height="20.333333333333332"/>
@@ -257,21 +260,40 @@
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Age" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jN3-Ma-JgA">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" restorationIdentifier="ageTextfield" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Age" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jN3-Ma-JgA">
                                                                         <rect key="frame" x="0.0" y="28.333333333333314" width="369" height="56"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="56" id="Z6X-kH-93a"/>
                                                                         </constraints>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                                                     </textField>
                                                                 </subviews>
                                                                 <constraints>
                                                                     <constraint firstItem="jN3-Ma-JgA" firstAttribute="width" secondItem="j0B-fp-OUu" secondAttribute="width" id="RXm-fn-k5j"/>
                                                                 </constraints>
                                                             </stackView>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7Gc-nF-Dsn">
+                                                                <rect key="frame" x="0.0" y="325" width="369" height="84.333333333333314"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Yv-WQ-dPB">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="369" height="20.333333333333332"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" restorationIdentifier="emailTextfield" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IYg-Xc-GRO">
+                                                                        <rect key="frame" x="0.0" y="28.333333333333371" width="369" height="56"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="56" id="tsp-hm-Gr5"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                                                    </textField>
+                                                                </subviews>
+                                                            </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="f15-rf-Bjf">
-                                                                <rect key="frame" x="0.0" y="313" width="369" height="84.333333333333314"/>
+                                                                <rect key="frame" x="0.0" y="433.33333333333331" width="369" height="84.333333333333314"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zzE-hm-II5">
                                                                         <rect key="frame" x="0.0" y="0.0" width="73.333333333333329" height="20.333333333333332"/>
@@ -303,7 +325,7 @@
                                                 </constraints>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MxW-lI-rpw">
-                                                <rect key="frame" x="12" y="570.66666666666663" width="369" height="56"/>
+                                                <rect key="frame" x="12" y="643" width="369" height="56"/>
                                                 <color key="backgroundColor" red="0.31867626329999998" green="0.5302717065" blue="0.17574329299999999" alpha="0.63166404880000004" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="56" id="8pO-ND-792"/>
@@ -313,13 +335,13 @@
                                                 <buttonConfiguration key="configuration" style="plain" title="Sign Up "/>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vbM-82-gt7">
-                                                <rect key="frame" x="24" y="650.66666666666663" width="345" height="12.666666666666629"/>
+                                                <rect key="frame" x="24" y="723" width="345" height="12.666666666666629"/>
                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="11"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pli-wu-RB6">
-                                                <rect key="frame" x="159" y="671.33333333333337" width="75.333333333333314" height="12"/>
+                                                <rect key="frame" x="159" y="743.66666666666663" width="75.333333333333314" height="12"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="12" id="Ovg-kJ-X9W"/>
                                                 </constraints>
@@ -342,7 +364,7 @@
                                             <constraint firstItem="Pli-wu-RB6" firstAttribute="width" secondItem="zH8-9O-A6S" secondAttribute="width" multiplier="0.191688" id="nuX-mv-tPq"/>
                                             <constraint firstItem="vbM-82-gt7" firstAttribute="top" secondItem="MxW-lI-rpw" secondAttribute="bottom" constant="24" id="r9i-ax-PyG"/>
                                             <constraint firstAttribute="trailing" secondItem="iEZ-3J-hL9" secondAttribute="trailing" constant="12" id="uND-7d-7Rm"/>
-                                            <constraint firstItem="MxW-lI-rpw" firstAttribute="top" secondItem="iEZ-3J-hL9" secondAttribute="bottom" constant="56" id="yZP-n2-brh"/>
+                                            <constraint firstItem="MxW-lI-rpw" firstAttribute="top" secondItem="iEZ-3J-hL9" secondAttribute="bottom" constant="24" id="yZP-n2-brh"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -380,11 +402,13 @@
                         <outlet property="signInButton" destination="Pli-wu-RB6" id="ugL-4V-nsb"/>
                         <outlet property="signInLabel" destination="vbM-82-gt7" id="lme-Wf-kQZ"/>
                         <outlet property="signUpButton" destination="MxW-lI-rpw" id="Eb4-co-H6l"/>
+                        <outlet property="surnameLabel" destination="3Gj-qH-Ns5" id="Vc9-oN-u3C"/>
+                        <outlet property="surnameTextfield" destination="eGc-4a-YXF" id="PNq-uM-Wd2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IGd-KV-aNH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="669" y="4"/>
+            <point key="canvasLocation" x="668" y="4"/>
         </scene>
     </scenes>
     <resources>
