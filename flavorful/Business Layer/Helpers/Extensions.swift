@@ -20,7 +20,7 @@ extension LoginVC: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
         switch textField {
         case emailTextfield:
-           if (textField.text?.count ?? 0) > 6 {
+           if (textField.text?.count ?? 0) > 5 {
                emailTextfield.layer.borderWidth = 0
        
            } else {
@@ -149,4 +149,24 @@ func showAlert(alertText : String, alertMessage : String) {
 //Add more actions as you see fit
 self.present(alert, animated: true, completion: nil)
   }
+}
+
+extension UICollectionView {
+    
+    func registerNib(with identifier: String)
+    {
+        self.register(UINib(nibName: identifier, bundle: Bundle.main), forCellWithReuseIdentifier: identifier)
+    }
+    
+    func registerCodedCell(with cellClass: AnyClass)
+    {
+        let identifier = String(describing: cellClass.self)
+        self.register(cellClass, forCellWithReuseIdentifier: identifier)
+    }
+    
+    func dequeCell<T>(cellClass : T.Type, indexPath: IndexPath) -> T where T: UICollectionViewCell
+    {
+        let identifier = String(describing: T.self)
+        return dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! T
+    }
 }

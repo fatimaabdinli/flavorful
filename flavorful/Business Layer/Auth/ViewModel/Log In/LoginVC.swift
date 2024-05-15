@@ -19,6 +19,7 @@ class LoginVC: UIViewController {
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var signUpLabel: UILabel!
     @IBOutlet weak var signUpButton: UIButton!
+//    var userName: String?
     
     private var peopleList: Results<Person>?
     let realm = RealmHelper.instance.realm
@@ -30,14 +31,8 @@ class LoginVC: UIViewController {
         setupView()
         setupTarget()
         viewModel.getPeopleList()
-//        getPeopleList()
         print(realm?.configuration.fileURL ?? "")
     }
-    
-//    fileprivate func getPeopleList() {
-//            let results = realm?.objects(Person.self)
-//            peopleList = results
-//    }
     
     fileprivate func setupView() {
         emailTextfield.delegate = self
@@ -61,14 +56,6 @@ class LoginVC: UIViewController {
                 present(vc, animated: true)
     }
     
-//    public func showAlertMessage(title: String, message: String){
-//            
-//            let alertMessagePopUpBox = UIAlertController(title: title, message: message, preferredStyle: .alert)
-//            let okButton = UIAlertAction(title: "OK", style: .default)
-//            alertMessagePopUpBox.addAction(okButton)
-//            self.present(alertMessagePopUpBox, animated: true)
-//        }
-    
     fileprivate func checkUser() {
         guard let email = emailTextfield.text,
               let password = passTextfield.text,
@@ -80,24 +67,22 @@ class LoginVC: UIViewController {
         } else {
             guard let user = list.first(where: {$0.email == email}) else {
                 self.showAlert(alertText: "Alert", alertMessage: "User not found")
-//                showAlertMessage(title: "Alert", message: "User not found")
+
                 return
             }
             
             if user.pass == password {
-//                logIn olanda hara kecsin onu yaz
                 logInSuccess()
-                print(#function, "success")
+                UserDefaultsHelper.setString(key: "user_name", value: user.name)
             } else {
                 self.showAlert(alertText: "Alert", alertMessage: "Incorrect password")
-//                showAlertMessage(title: "Alert", message: "Incorrect password")
             }
         }
     }
     
     fileprivate func logInSuccess() {
-        let vc = UIStoryboard.init(name: "Home", bundle: Bundle.main).instantiateViewController(withIdentifier: "HomeVC") as? HomeVC
-        self.navigationController?.pushViewController(vc!, animated: true)
+        let vc = UIStoryboard.init(name: "Home", bundle: Bundle.main).instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
+        navigationController?.pushViewController(vc, animated: true)
         UserDefaultsHelper.setBool(key: Constant.UD_IS_LOGIN_KEY, value: true)
     }
 }
