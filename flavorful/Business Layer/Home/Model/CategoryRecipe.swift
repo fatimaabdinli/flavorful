@@ -18,7 +18,7 @@ struct CategoryRecipe: RecipeCellProtocol {
         text ?? ""
     }
     
-    var id: String?
+    var id: String
     var name: String?
     var imageView: String?
     var text: String?

@@ -8,6 +8,7 @@
 import UIKit
 
 protocol RecipeCellProtocol {
+    var id: String {get}
     var image: String {get}
     var titleLabel: String {get}
     var subtitleLabel: String {get}

@@ -17,7 +17,6 @@ class HeaderView: UICollectionReusableView {
 
     var segmentCallback: ((SegmentType) -> Void)?
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         segmentView.addTarget(self, action: #selector(segmentClicked), for: .valueChanged)

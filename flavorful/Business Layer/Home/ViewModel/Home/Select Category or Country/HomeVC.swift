@@ -10,11 +10,10 @@ import UIKit
 class HomeVC: UIViewController {
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var headerLabel: UILabel!
-    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
+    private var segmentType: SegmentType = .Country
     
     let viewModel = HomeVM()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,14 +25,16 @@ class HomeVC: UIViewController {
     }
     
     fileprivate func setupTarget() {
-        backButton.addTarget(self, action: #selector(backAction), for: .touchUpInside)
     }
     
     @objc func backAction() {
-        self.navigationController?.popToRootViewController(animated: true)
+        let vc = storyboard?.instantiateViewController(withIdentifier: "SearchVC") as! SearchVC
+               vc.modalPresentationStyle = .fullScreen
+               present(vc, animated: true)
     }
     
     fileprivate func segmentAction(type: SegmentType) {
+        segmentType = type
         viewModel.getListOfType(type: type)
     }
     
@@ -42,7 +43,6 @@ class HomeVC: UIViewController {
         headerLabel.textColor = .white
         collectionView.registerNib(with: "RecipeCell")
         collectionView.register(UINib(nibName: "HeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderView")
-        //        categoryReceiptList = viewModel.createCuisineList()
         configureViewModel()
     }
     
@@ -92,6 +92,16 @@ extension HomeVC: UICollectionViewDelegate,
             self.segmentAction(type: segmentType)
         }
         return headerView
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "SearchVC") as! SearchVC
+               vc.modalPresentationStyle = .fullScreen
+        let item = viewModel.recipeList[indexPath.row]
+        vc.type = segmentType
+        vc.value = item.id
+        present(vc, animated: true)
+        
     }
 }
 
