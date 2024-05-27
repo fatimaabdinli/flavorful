@@ -11,7 +11,9 @@ class HomeVM {
 
     private (set) var recipeList: [RecipeCellProtocol] = []
     var successCB: (() -> Void)?
-    
+//    public var segmentType: SegmentType = .Country
+//    public var value: String?
+
     func createCuisineList() {
            let cuisineList = [
             CuisineRecipe(id: "Italian", name: "Italian", imageView: "italy", text: "The Mediterranean diet forms the basis of Italian cuisine, rich in pasta, fish, fruits and vegetables. Cheese, cold cuts and wine are central to Italian cuisine along with pizza and coffee."),

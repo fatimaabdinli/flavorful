@@ -43,6 +43,9 @@
 		B6BDB2542BF9BFE30075ACBF /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BDB2532BF9BFE30075ACBF /* RecipeModel.swift */; };
 		B6BDB25A2BF9CA660075ACBF /* RecipeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BDB2582BF9CA660075ACBF /* RecipeHelper.swift */; };
 		B6BDB25B2BF9CA660075ACBF /* RecipeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BDB2592BF9CA660075ACBF /* RecipeManager.swift */; };
+		B6D43F892C03780300CF50B0 /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D43F882C03780300CF50B0 /* DetailsVC.swift */; };
+		B6D43F8B2C03780F00CF50B0 /* DetailsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D43F8A2C03780F00CF50B0 /* DetailsVM.swift */; };
+		B6D43F8E2C047AD900CF50B0 /* SDWebImageLinkPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = B6D43F8D2C047AD900CF50B0 /* SDWebImageLinkPlugin */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +85,8 @@
 		B6BDB2532BF9BFE30075ACBF /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
 		B6BDB2582BF9CA660075ACBF /* RecipeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeHelper.swift; sourceTree = "<group>"; };
 		B6BDB2592BF9CA660075ACBF /* RecipeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeManager.swift; sourceTree = "<group>"; };
+		B6D43F882C03780300CF50B0 /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
+		B6D43F8A2C03780F00CF50B0 /* DetailsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6D43F8E2C047AD900CF50B0 /* SDWebImageLinkPlugin in Frameworks */,
 				B62FDFCD2BE2BC9800E21A3A /* RealmSwift in Frameworks */,
 				B62FDFCB2BE2BC9800E21A3A /* Realm in Frameworks */,
 			);
@@ -252,6 +258,7 @@
 			children = (
 				B6BDB2482BF8C8B60075ACBF /* Select Category or Country */,
 				B6BDB2472BF8C8A60075ACBF /* Search */,
+				B6D43F872C0377C300CF50B0 /* Details */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -371,6 +378,15 @@
 			path = Recipe;
 			sourceTree = "<group>";
 		};
+		B6D43F872C0377C300CF50B0 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				B6D43F8A2C03780F00CF50B0 /* DetailsVM.swift */,
+				B6D43F882C03780300CF50B0 /* DetailsVC.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -390,6 +406,7 @@
 			packageProductDependencies = (
 				B62FDFCA2BE2BC9800E21A3A /* Realm */,
 				B62FDFCC2BE2BC9800E21A3A /* RealmSwift */,
+				B6D43F8D2C047AD900CF50B0 /* SDWebImageLinkPlugin */,
 			);
 			productName = flavorful;
 			productReference = B60B120A2BD95E1D0080446A /* flavorful.app */;
@@ -421,6 +438,7 @@
 			mainGroup = B60B12012BD95E1D0080446A;
 			packageReferences = (
 				B62FDFC92BE2BC9800E21A3A /* XCRemoteSwiftPackageReference "realm-swift" */,
+				B6D43F8C2C047AD900CF50B0 /* XCRemoteSwiftPackageReference "SDWebImageLinkPlugin" */,
 			);
 			productRefGroup = B60B120B2BD95E1D0080446A /* Products */;
 			projectDirPath = "";
@@ -461,6 +479,7 @@
 				B6BDB2512BF9AD9C0075ACBF /* NetworkHelper.swift in Sources */,
 				B6BDB2432BF8C4300075ACBF /* GivenRecipesCell.swift in Sources */,
 				B6BDB25B2BF9CA660075ACBF /* RecipeManager.swift in Sources */,
+				B6D43F8B2C03780F00CF50B0 /* DetailsVM.swift in Sources */,
 				B60B12122BD95E1D0080446A /* LoginVC.swift in Sources */,
 				B61F3E8A2BF0BEFE0010F4EE /* CategoryRecipe.swift in Sources */,
 				B6B9131A2BDE43D1001BC918 /* Person.swift in Sources */,
@@ -478,6 +497,7 @@
 				B61F3E762BE77DFB0010F4EE /* HomeVC.swift in Sources */,
 				B61F3E6C2BE53D480010F4EE /* LoginVM.swift in Sources */,
 				B61F3E722BE77D5D0010F4EE /* TabbarVC.swift in Sources */,
+				B6D43F892C03780300CF50B0 /* DetailsVC.swift in Sources */,
 				B61F3E8E2BF0BFC20010F4EE /* HomeVM.swift in Sources */,
 				B61F3E862BEBCDF90010F4EE /* HeaderView.swift in Sources */,
 			);
@@ -712,6 +732,14 @@
 				version = 10.49.2;
 			};
 		};
+		B6D43F8C2C047AD900CF50B0 /* XCRemoteSwiftPackageReference "SDWebImageLinkPlugin" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageLinkPlugin";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -724,6 +752,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B62FDFC92BE2BC9800E21A3A /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		B6D43F8D2C047AD900CF50B0 /* SDWebImageLinkPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B6D43F8C2C047AD900CF50B0 /* XCRemoteSwiftPackageReference "SDWebImageLinkPlugin" */;
+			productName = SDWebImageLinkPlugin;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

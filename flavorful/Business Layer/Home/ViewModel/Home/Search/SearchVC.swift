@@ -24,9 +24,20 @@ class SearchVC: UIViewController {
         print(type, value)
         setupView()
         setupTarget()
-        viewModel.getRecipeList(type: type ?? .Country, value: value)
+        viewModel.getRecipeListRequest(type: type ?? .Country, value: value)
+        viewModel.successCallback = { [weak self] in
+            guard let self = self else {return}
+            reloadCollectionView()
+            //            print("success")
+        }
     }
-
+    
+    fileprivate func reloadCollectionView() {
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+    }
+    
     fileprivate func setupView() {
         collectionView.registerNib(with: "GivenRecipesCell")
        
@@ -61,7 +72,7 @@ extension SearchVC: UICollectionViewDelegate,
                   UICollectionViewDataSource,
                   UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        return viewModel.getRecipeCount()
     }
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         1
@@ -73,6 +84,9 @@ extension SearchVC: UICollectionViewDelegate,
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeCell(cellClass: GivenRecipesCell.self, indexPath: indexPath)
+        let model = viewModel.recipeList[indexPath.row]
+        print(model.name, "------- NAME")
+        cell.configureCell(model: model)
         return cell
     }
 }

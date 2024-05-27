@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -98,7 +99,7 @@
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i8g-ei-NAy">
                                                 <rect key="frame" x="12" y="435.33333333333331" width="369" height="56"/>
-                                                <color key="backgroundColor" red="0.31867626329999998" green="0.5302717065" blue="0.17574329299999999" alpha="0.63166404880000004" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" name="ColorGreen"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="56" id="Gls-fY-MT4"/>
                                                 </constraints>
@@ -117,7 +118,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="12" id="f0d-tK-nZ1"/>
                                                 </constraints>
-                                                <color key="tintColor" red="0.90321111679999999" green="0.54895234110000002" blue="0.28227257729999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="tintColor" name="ColorOrange"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Sign up"/>
                                             </button>
@@ -328,7 +329,7 @@
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MxW-lI-rpw">
                                                 <rect key="frame" x="12" y="643" width="369" height="56"/>
-                                                <color key="backgroundColor" red="0.31867626329999998" green="0.5302717065" blue="0.17574329299999999" alpha="0.63166404880000004" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" name="ColorGreen"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="56" id="8pO-ND-792"/>
                                                 </constraints>
@@ -347,7 +348,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="12" id="Ovg-kJ-X9W"/>
                                                 </constraints>
-                                                <color key="tintColor" red="0.90321111679999999" green="0.54895234110000002" blue="0.28227257729999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="tintColor" name="ColorOrange"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Sign in"/>
                                             </button>
@@ -357,7 +358,7 @@
                                                     <constraint firstAttribute="width" constant="16" id="0bI-Vh-lyr"/>
                                                     <constraint firstAttribute="height" constant="16" id="aDM-qv-wsD"/>
                                                 </constraints>
-                                                <color key="tintColor" red="0.90323847530000001" green="0.56069529060000001" blue="0.29796284439999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="tintColor" red="0.90196078431372551" green="0.5607843137254902" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="xmark.app" catalog="system" title=""/>
                                             </button>
@@ -425,11 +426,17 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IGd-KV-aNH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="668" y="4"/>
+            <point key="canvasLocation" x="667.93893129770993" y="3.5211267605633805"/>
         </scene>
     </scenes>
     <resources>
         <image name="xmark.app" catalog="system" width="128" height="114"/>
+        <namedColor name="ColorGreen">
+            <color red="0.32156862745098042" green="0.47058823529411764" blue="0.32549019607843138" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ColorOrange">
+            <color red="0.90196078431372551" green="0.5607843137254902" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

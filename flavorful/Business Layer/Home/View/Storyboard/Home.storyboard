@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -45,7 +46,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.90321111679999999" green="0.54895234110000002" blue="0.28227257729999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" name="ColorOrange"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="NvZ-CF-d8T"/>
                                     <constraint firstAttribute="trailing" secondItem="S01-d1-SKa" secondAttribute="trailing" constant="24" id="U8W-WS-uq7"/>
@@ -66,7 +67,7 @@
                             <constraint firstItem="2sN-1O-fIn" firstAttribute="top" secondItem="YeQ-bb-JxG" secondAttribute="top" id="mBK-IX-et0"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="DvU-Zx-kKu" userLabel="Home"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" selectedImage="house.fill" id="DvU-Zx-kKu" userLabel="Home"/>
                     <connections>
                         <outlet property="collectionView" destination="94d-yb-Z0R" id="1qr-ON-Iau"/>
                         <outlet property="headerLabel" destination="S01-d1-SKa" id="Uhd-V3-ju2"/>
@@ -128,10 +129,10 @@
             </objects>
             <point key="canvasLocation" x="575" y="432"/>
         </scene>
-        <!--Home-->
+        <!--Search-->
         <scene sceneID="Wua-Ll-5Py">
             <objects>
-                <viewController storyboardIdentifier="SearchVC" id="e7Y-9W-94K" userLabel="Home" customClass="SearchVC" customModule="flavorful" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchVC" id="e7Y-9W-94K" userLabel="Search" customClass="SearchVC" customModule="flavorful" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Z0k-Xs-4qt">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -145,6 +146,7 @@
                                             <constraint firstAttribute="width" constant="24" id="0pU-fL-4iP"/>
                                             <constraint firstAttribute="height" constant="24" id="RBE-Ix-84a"/>
                                         </constraints>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="line.3.horizontal.decrease.circle" catalog="system" title=""/>
                                     </button>
@@ -237,12 +239,41 @@
             </objects>
             <point key="canvasLocation" x="-1054" y="1151"/>
         </scene>
+        <!--Details-->
+        <scene sceneID="Gna-SV-BJ1">
+            <objects>
+                <viewController id="wGd-EI-0ny" userLabel="Details" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="v81-TH-W0l">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kkr-t5-RRO">
+                                <rect key="frame" x="24" y="101" width="345" height="128"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4uI-5R-aFi"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4uI-5R-aFi" firstAttribute="trailing" secondItem="kkr-t5-RRO" secondAttribute="trailing" constant="24" id="U5I-0D-6j1"/>
+                            <constraint firstItem="kkr-t5-RRO" firstAttribute="leading" secondItem="4uI-5R-aFi" secondAttribute="leading" constant="24" id="bC7-D9-ihD"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hfP-OE-pwh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-237" y="1151"/>
+        </scene>
     </scenes>
     <resources>
         <image name="homekit" catalog="system" width="128" height="104"/>
+        <image name="house" catalog="system" width="128" height="104"/>
+        <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="line.3.horizontal.decrease.circle" catalog="system" width="128" height="123"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="xmark.circle" catalog="system" width="128" height="123"/>
+        <namedColor name="ColorOrange">
+            <color red="0.90196078431372551" green="0.5607843137254902" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="separatorColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

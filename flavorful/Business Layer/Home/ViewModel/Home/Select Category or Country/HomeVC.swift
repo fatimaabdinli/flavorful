@@ -100,8 +100,10 @@ extension HomeVC: UICollectionViewDelegate,
         let item = viewModel.recipeList[indexPath.row]
         vc.type = segmentType
         vc.value = item.id
+//        !!!!!!!
+//        viewModel.segmentType = segmentType
+//        viewModel.value = item.id
         present(vc, animated: true)
-        
     }
 }
 

@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SDWebImage
 
 extension LoginVC: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scroll: UIScrollView) {
@@ -168,5 +169,14 @@ extension UICollectionView {
     {
         let identifier = String(describing: T.self)
         return dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! T
+    }
+}
+
+extension UIImageView {
+    func loadURL(_ url: String) {
+        let urlString = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        if let url = URL(string: urlString) {
+            sd_setImage(with: url)
+        }
     }
 }

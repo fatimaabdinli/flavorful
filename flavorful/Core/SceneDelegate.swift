@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         
         if UserDefaultsHelper.getBool(key: Constant.UD_IS_LOGIN_KEY) {
-            let vc = UIStoryboard.init(name: "Home", bundle: Bundle.main).instantiateViewController(withIdentifier: "HomeVC") as? HomeVC ?? HomeVC()
+            let vc = UIStoryboard.init(name: "Home", bundle: Bundle.main).instantiateViewController(withIdentifier: "TabbarVC") as? TabbarVC ?? TabbarVC()
             // Set the new root view controller
             let navigationController = UINavigationController(rootViewController: vc)
             //            navigationController.popToRootViewController(animated: true)
