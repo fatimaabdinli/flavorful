@@ -46,6 +46,8 @@
 		B6D43F892C03780300CF50B0 /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D43F882C03780300CF50B0 /* DetailsVC.swift */; };
 		B6D43F8B2C03780F00CF50B0 /* DetailsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D43F8A2C03780F00CF50B0 /* DetailsVM.swift */; };
 		B6D43F8E2C047AD900CF50B0 /* SDWebImageLinkPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = B6D43F8D2C047AD900CF50B0 /* SDWebImageLinkPlugin */; };
+		B6D43F922C04C1ED00CF50B0 /* SearchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D43F912C04C1ED00CF50B0 /* SearchHelper.swift */; };
+		B6D43F942C04C1FA00CF50B0 /* SearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D43F932C04C1FA00CF50B0 /* SearchManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +89,8 @@
 		B6BDB2592BF9CA660075ACBF /* RecipeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeManager.swift; sourceTree = "<group>"; };
 		B6D43F882C03780300CF50B0 /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
 		B6D43F8A2C03780F00CF50B0 /* DetailsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVM.swift; sourceTree = "<group>"; };
+		B6D43F912C04C1ED00CF50B0 /* SearchHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHelper.swift; sourceTree = "<group>"; };
+		B6D43F932C04C1FA00CF50B0 /* SearchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 		B60B12012BD95E1D0080446A = {
 			isa = PBXGroup;
 			children = (
+				B60B120D2BD95E1D0080446A /* AppDelegate.swift */,
+				B60B120F2BD95E1D0080446A /* SceneDelegate.swift */,
 				B60B120C2BD95E1D0080446A /* flavorful */,
 				B60B120B2BD95E1D0080446A /* Products */,
 			);
@@ -123,22 +129,12 @@
 			isa = PBXGroup;
 			children = (
 				B6BDB24E2BF9AD7A0075ACBF /* Network Layer */,
-				B60B12212BDD307B0080446A /* Core */,
 				B60B12232BDD308D0080446A /* Business Layer */,
 				B60B12162BD95E1F0080446A /* Assets.xcassets */,
 				B60B12182BD95E1F0080446A /* LaunchScreen.storyboard */,
 				B60B121B2BD95E1F0080446A /* Info.plist */,
 			);
 			path = flavorful;
-			sourceTree = "<group>";
-		};
-		B60B12212BDD307B0080446A /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				B60B120D2BD95E1D0080446A /* AppDelegate.swift */,
-				B60B120F2BD95E1D0080446A /* SceneDelegate.swift */,
-			);
-			path = Core;
 			sourceTree = "<group>";
 		};
 		B60B12222BDD30850080446A /* Helpers */ = {
@@ -356,6 +352,7 @@
 			children = (
 				B6BDB2552BF9CA260075ACBF /* Core */,
 				B6BDB2572BF9CA3A0075ACBF /* Recipe */,
+				B6D43F8F2C04C1C900CF50B0 /* Search */,
 			);
 			path = "Network Layer";
 			sourceTree = "<group>";
@@ -385,6 +382,15 @@
 				B6D43F882C03780300CF50B0 /* DetailsVC.swift */,
 			);
 			path = Details;
+			sourceTree = "<group>";
+		};
+		B6D43F8F2C04C1C900CF50B0 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				B6D43F912C04C1ED00CF50B0 /* SearchHelper.swift */,
+				B6D43F932C04C1FA00CF50B0 /* SearchManager.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -486,6 +492,7 @@
 				B61F3E6E2BE53D5E0010F4EE /* SignupVM.swift in Sources */,
 				B60B120E2BD95E1D0080446A /* AppDelegate.swift in Sources */,
 				B6BDB2542BF9BFE30075ACBF /* RecipeModel.swift in Sources */,
+				B6D43F922C04C1ED00CF50B0 /* SearchHelper.swift in Sources */,
 				B6BDB2522BF9AD9C0075ACBF /* NetworkManager.swift in Sources */,
 				B61F3E812BEBCC780010F4EE /* RecipeCell.swift in Sources */,
 				B6BDB24C2BF8C9DE0075ACBF /* SearchVC.swift in Sources */,
@@ -498,6 +505,7 @@
 				B61F3E6C2BE53D480010F4EE /* LoginVM.swift in Sources */,
 				B61F3E722BE77D5D0010F4EE /* TabbarVC.swift in Sources */,
 				B6D43F892C03780300CF50B0 /* DetailsVC.swift in Sources */,
+				B6D43F942C04C1FA00CF50B0 /* SearchManager.swift in Sources */,
 				B61F3E8E2BF0BFC20010F4EE /* HomeVM.swift in Sources */,
 				B61F3E862BEBCDF90010F4EE /* HeaderView.swift in Sources */,
 			);

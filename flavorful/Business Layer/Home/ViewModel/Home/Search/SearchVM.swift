@@ -8,20 +8,10 @@
 import Foundation
 
 class SearchVM {
-    private var recipeSearchResults: [RecipeResult]?
     var recipeList: [GivenRecipeCellProtocol] = []
     var showLoading: ((Bool) -> Void)?
     var successCallback: (() -> Void)?
     var errorCallback: ((String) -> Void)?
-    
-//    func getRecipeList() {
-//        if let recipeSearchResults = recipeSearchResults, !recipeSearchResults.isEmpty {
-//            recipeList = recipeSearchResults
-//            successCallback?()
-//        } else {
-//            getRecipeListRequest(type: type, value: value)
-//        }
-//    }
     
     func getRecipeCount() -> Int {
         recipeList.count
@@ -36,9 +26,21 @@ class SearchVM {
             if let errorString = errorString {
                 self.errorCallback?(errorString)
             } else if let responseData = responseData?.results {
-//                print(responseData)
-                self.recipeSearchResults = responseData
-                recipeList = recipeSearchResults ?? []
+                recipeList = responseData ?? []
+                self.successCallback?()
+            }
+        })
+    }
+    
+    func searchRecipeListRequest(type: SegmentType, value: String?, query: String) {
+        showLoading?(true)
+        SearchManager.shared.searchRecipeList(segmentType: type, value: value ?? "", query: query, completion: { [weak self] responseData, errorString in
+            guard let self = self else {return}
+            self.showLoading?(false)
+            if let errorString = errorString {
+                self.errorCallback?(errorString)
+            } else if let responseData = responseData?.results {
+                recipeList = responseData ?? []
                 self.successCallback?()
             }
         })

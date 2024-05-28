@@ -24,11 +24,14 @@ class SearchVC: UIViewController {
         print(type, value)
         setupView()
         setupTarget()
+        configureVM()
+    }
+    
+    fileprivate func configureVM() {
         viewModel.getRecipeListRequest(type: type ?? .Country, value: value)
         viewModel.successCallback = { [weak self] in
             guard let self = self else {return}
             reloadCollectionView()
-            //            print("success")
         }
     }
     
@@ -40,7 +43,6 @@ class SearchVC: UIViewController {
     
     fileprivate func setupView() {
         collectionView.registerNib(with: "GivenRecipesCell")
-       
     }
     
     fileprivate func setupTarget() {
@@ -49,7 +51,6 @@ class SearchVC: UIViewController {
     }
     
     @objc func searchAction() {
-        print(#function)
         showSearchField.toggle()
         
         UIView.transition(with: searchField,
@@ -70,7 +71,8 @@ class SearchVC: UIViewController {
 
 extension SearchVC: UICollectionViewDelegate,
                   UICollectionViewDataSource,
-                  UICollectionViewDelegateFlowLayout {
+                  UICollectionViewDelegateFlowLayout,
+                    UITextFieldDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.getRecipeCount()
     }
@@ -85,10 +87,16 @@ extension SearchVC: UICollectionViewDelegate,
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeCell(cellClass: GivenRecipesCell.self, indexPath: indexPath)
         let model = viewModel.recipeList[indexPath.row]
-        print(model.name, "------- NAME")
         cell.configureCell(model: model)
         return cell
     }
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        guard let text = searchField.text else {return}
+        viewModel.searchRecipeListRequest(type: type ?? .Country, value: value, query: text)
+    }
 }
+
+
 
 

@@ -35,6 +35,7 @@ class GivenRecipesCell: UICollectionViewCell {
         recipeName.textColor = UIColor.white
         recipeTime.textColor = UIColor.white
         healthScore.textColor = UIColor.white
+        recipeScore.textColor = UIColor.white
         recipeScore.layer.masksToBounds = true
         recipeScore.layer.cornerRadius = 28
         recipeImage.layer.cornerRadius = 16
